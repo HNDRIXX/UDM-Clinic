@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            var historyTraversal = event.persisted || (typeof window.performance != 'undefined' && 
+            window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                window.location.reload();
+            }
+        });
+    </script>
+    <body>
+        <!-- partial:index.partial.html -->
+        <div id="container">
+            <!-- Cover Box -->
+            <div id="cover">
+                <!-- Sign Up Section -->
+                <h1 class="sign-up">UDM CLINIC</h1>
+                <p class="sign-up">Enter your personal details<br> and start a journey with us</p>
+                <a class="button sign-up" href="#cover">Sign Up</a>
+                <!-- Sign In Section -->
+                <h1 class="sign-in">Welcome Back!</h1>
+                <p class="sign-in">To keep connected with us please<br> login with your personal info</p>
+                <br>
+                <a class="button sub sign-in" href="#">Sign In</a>
+            </div>
+
+            <!-- Login Box -->
+            <div id="login">
+                <img src="static/img/udmclinic.png" alt="">
+
+                <form action="/signin" method="post">
+                    {% csrf_token %}
+                    {% if clear_fields %}
+                        <script>
+                            window.onload = function() {
+                                document.getElementById("id_username").value = "";
+                                document.getElementById("id_password").value = "";
+                            };
+                        </script>
+                    {% endif %}
+                    <input type="text" name="username" id="username" placeholder="Username"><br>
+                    <input type="password" name="password" id="password" placeholder="Password"><br>
+                    <a id="forgot-pass" href="#">Forgot your password?</a><br>
+                    <input class="submit-btn" type="submit" value="Sign In" >
+                </form>
+            </div>
+
+            <!-- Register Box -->
+            <div id="register">
+                <h1>Create Account</h1>
+              
+                <form action="/signup" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Name" autocomplete="off"><br>
+                    <input type="text" name="username" placeholder="Username" autocomplete="off"><br>
+                    <input type="email" name="email" placeholder="Email" autocomplete="off"><br>
+                    <input type="password" name="password" placeholder="Password" autocomplete="off"><br>
+                    <input class="submit-btn" type="submit" value="Sign Up">
+                </form>
+            </div>
+        </div> <!-- END Container -->
+        <!-- partial -->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
