@@ -1,4 +1,109 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900');
+/* PROFILE CSS */
+#profile h6{
+  color: #000;
+}
+
+#profile #title{
+  font-weight: bolder;
+}
+
+#profile #left-profile{
+  background-color: #eeeeee;
+}
+
+#profile #left-profile p{
+  color: #033d5a;
+}
+
+#gradient-custom {
+  /* fallback for old browsers */
+  background: #65e5f6;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, #5fecff, #14808f);
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, #5fecff, #14808f);
+  }
+  
+
+/* CONSULTATION CSS */
+#myModal{
+  color: #000;
+}
+
+#message-validate{
+  color: #000;
+}
+
+.consultTable, .consultTable table{
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: #eeeeee !important;
+  z-index: 1;
+}
+
+/* CONSULTED CSS */
+#table-datatable, .modal{
+  color: #000;
+}
+
+#table-datatable table{
+  text-align: center;
+}
+
+#table-datatable .form-control{
+  display: inline;
+  width: 5em;
+}
+
+#table-datatable input[type=search] {
+  margin-left: 1em;
+	width: 15vw;
+}
+
+#table-datatable table button, #addButton{
+  color: #fff;
+  border: none;
+  outline: none;
+  background: #2fcabb;
+}
+
+
+#table-datatable table button:active, #addButton:active {
+  background: #23a89b;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+   outline: none;
+}
+
+#table-datatable table i{
+  font-size: 1.5em;
+}
+
+#example_paginate, .dataTables_filter{
+  float: right;
+}
+
+#example_info{
+  font-size: 13px;
+}
+
+
+.consultDataTable, .consultDataTable table{
+  height: 55vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
 *,
 *::before,
 *::after {
@@ -9012,18 +9117,6 @@ p,
 span {
   text-shadow: none; }
 
-[type=button]:focus,
-a:active,
-a:focus,
-a:visited,
-button::-moz-focus-inner,
-input[type=reset]::-moz-focus-inner,
-input[type=button]::-moz-focus-inner,
-input[type=submit]::-moz-focus-inner,
-input[type=file] > input[type=button]::-moz-focus-inner,
-select::-moz-focus-inner {
-  outline: 0; }
-
 input,
 .form-control:focus,
 input:focus,
@@ -9475,7 +9568,7 @@ code {
 
 .bg-gradient-primary {
   background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff)) !important;
-  background: linear-gradient(to right, #da8cff, #9a55ff) !important; }
+  background: linear-gradient(to right,  #00FFFF, #40E0D0) !important; }
 
 .bg-gradient-secondary {
   background: -webkit-gradient(linear, left top, right top, from(#e7ebf0), to(#868e96)) !important;
@@ -11277,8 +11370,7 @@ code {
 select.form-control {
   padding: .4375rem .75rem;
   border: 0;
-  outline: 1px solid #ebedf2;
-  color: #c9c8c8; }
+  outline: 1px solid #ebedf2; }
   select.form-control:focus {
     outline: 1px solid #ebedf2; }
   select.form-control.border-primary {
@@ -12156,13 +12248,13 @@ dl {
         .sidebar .nav .nav-item .nav-link[aria-expanded="true"] .menu-arrow:before {
           content: "\f140"; }
       .sidebar .nav .nav-item.active {
-        background: #ffffff; }
+        background: none; }
         .sidebar .nav .nav-item.active > .nav-link .menu-title {
-          color: #b66dff;}
+          color: #40E0D0; }
         .sidebar .nav .nav-item.active > .nav-link i {
-          color: #b66dff; }
+          color: #40E0D0; }
       .sidebar .nav .nav-item:hover {
-        background: #fcfcfc; }
+        background: none; }
       .sidebar .nav .nav-item.nav-profile .nav-link {
         height: auto;
         line-height: 1;
@@ -12228,7 +12320,7 @@ dl {
               left: auto;
               right: 0; }
           .sidebar .nav.sub-menu .nav-item .nav-link.active {
-            color: #b66dff;
+            color: #40E0D0;
             background: transparent; }
           .sidebar .nav.sub-menu .nav-item .nav-link:hover {
             color: #555555; }
