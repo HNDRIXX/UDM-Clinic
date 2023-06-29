@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900');
+/* BASE CSS */
+#base-container{
+  margin-top: 0em;
+}
+
 /* PROFILE CSS */
 #profile h6{
   color: #000;
@@ -26,7 +31,13 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right bottom, #5fecff, #14808f);
   }
-  
+
+
+/* EMPLOYEE CSS */
+#empModal{
+  color: #000;
+  width: 80vw;
+}
 
 /* CONSULTATION CSS */
 #myModal{
@@ -40,6 +51,7 @@
 .consultTable, .consultTable table{
   height: 50vh;
   overflow-y: scroll;
+  word-break: break-all
 }
 
 .sticky-header th {
@@ -96,13 +108,11 @@
   font-size: 13px;
 }
 
-
 .consultDataTable, .consultDataTable table{
   height: 55vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
 
 *,
 *::before,
@@ -12259,7 +12269,6 @@ dl {
         height: auto;
         line-height: 1;
         border-top: 0;
-        margin-left: -13px;
         padding: 1.25rem 0; }
         .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-image {
           width: 44px;

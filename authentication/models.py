@@ -32,6 +32,15 @@ class Employee(models.Model):
     empID = models.AutoField(primary_key=True)
     empName = models.CharField(max_length=100, null=False, blank=False)
     empRole = models.CharField(max_length=10, null=False, blank=False)
+    empPhoneNum = models.IntegerField(max_length=11, null=False, blank=False, default=0)
 
     def __str__(self):
         return self.empName
+    
+class Illness(models.Model):
+    illnessID = models.AutoField(primary_key=True)
+    illnessName = models.CharField(max_length=100, null=False, blank=False)
+    illnessDesc = models.CharField(max_length=10, null=False, blank=False)
+
+    def __str__(self):
+        return self.illnessName

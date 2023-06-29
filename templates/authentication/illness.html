@@ -5,11 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Track Logs</title>
+    <title>Illness</title>
+    <script src="https://kit.fontawesome.com/4c890c6a79.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
-    {% comment %} <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css"> {% endcomment %}
     <link rel="stylesheet" href="static/css/base.css">
-    <!-- End layout styles -->
     <link rel="shortcut icon" href="{% static 'img/icon.svg' %}" />
   </head>
   <body>
@@ -25,7 +24,7 @@
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-         
+
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,13 +33,13 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">
-                    {% for employee in employee_data %}
-                      {% if employee.empID == user.id %}
-                        {{employee.empName}}
-                      {% endif %}
-                    {% endfor %}
-                  </p>
+                    <p class="mb-1 text-black">
+                        {% for employee in employee_data %}
+                          {% if employee.empID == user.id %}
+                            {{employee.empName}}
+                          {% endif %}
+                        {% endfor %}
+                      </p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -85,15 +84,15 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  {% for employee in employee_data %}
-                    {% if employee.empID == user.id %}
-                      <span class="font-weight-bolder mb-2" style="width:6.5vw;">
-                        {{ employee.empName | split_name }}
-                      </span>
-                      <span class="text-secondary text-small">{{employee.empRole}}</span>
-                    {% endif %}
-                  {% endfor %}
-                </div>
+                    {% for employee in employee_data %}
+                      {% if employee.empID == user.id %}
+                        <span class="font-weight-bolder mb-2" style="width:6.5vw;">
+                          {{ employee.empName | split_name }}
+                        </span>
+                        <span class="text-secondary text-small">{{employee.empRole}}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
@@ -109,23 +108,23 @@
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <li class="nav-item active">
+                <a class="nav-link active" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                   <span class="menu-title">Records</span>
                   <i class="menu-arrow"></i>
                   <i class="mdi mdi-file-find menu-icon"></i>
                 </a>
-                <div class="collapse" id="ui-basic">
+                <div class="collapse show" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="employee">Employee</a></li>
                     <li class="nav-item"> <a class="nav-link">Medical</a></li>
                     <li class="nav-item"> <a class="nav-link" href="consultation">Consultation</a></li>
                     <li class="nav-item"> <a class="nav-link" href="consulted">Consulted</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="illness">Illness</a></li>
+                    <li class="nav-item active"> <a class="nav-link active">Illness</a></li>
                   </ul>
                 </div>
               </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="tracklogs">
                 <span class="menu-title">Track Logs</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
@@ -145,8 +144,8 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </span> Track Logs
+                  <i class="fa fa-disease"></i>
+                </span> Illness
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -156,41 +155,72 @@
                 </ul>
               </nav>
             </div>
+
             <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Activity</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Date</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Sign In</td>
-                        <td>Patrick William Lofranco</td>
-                        <td>06/22/2023</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Sign In</td>
-                        <td>Patrick William Lofranco</td>
-                        <td>06/23/2023</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Sign In</td>
-                        <td>Patrick William Lofranco</td>
-                        <td>06/23/2023</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <div class="row">
+                <h3 id="message-validate">{% if messages %}
+                    {% for message in messages %}
+                      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                  {% endif %}</h3>
+    
+                  <button type="button" id="addButton" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#myModal">
+                    New Illness
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">New Illness</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form method="post" action="{% url 'illness' %}">
+                          {% csrf_token %}
+                          <div class="modal-body">
+                            <div class="form-group">
+                              <label for="illnessName">Illness Name</label>
+                              <input type="text" class="form-control" name="illnessName" placeholder="Illness Name" required>
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="illnessDesc">Illness Description</label>
+                              <input type="text" class="form-control" name="illnessDesc" placeholder="Illness Description" required>
+                            </div>
+                          </div>
+                          <div class="modal-footer border-top-0 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="table-wrapper-scroll-y my-custom-scrollbar consultDataTable">
+                    <div class="row" id="table-datatable">
+                      <table id="example" class="table table-bordered table-striped mb-0" style="width:100%">
+                        <thead class="sticky-header">
+                            <tr>
+                              <th>#</th>
+                              <th>Name</th>
+                              <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {% for record in illness_data %}
+                          <tr>
+                              <th scope="row">{{ record.illnessID }}</th>
+                              <td>{{ record.illnessName }}</td>
+                              <td><i class="fa-solid fa-circle-info" data-toggle="tooltip" title="{{ record.illnessDesc }}"></i></td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
               
-            </div>
+            </div> {% comment %} END ROW {% endcomment %}
+
             <div class="row">
             
             </div>
@@ -201,6 +231,8 @@
              {% comment %}  {% endcomment %}
             </div>
           </div>
+
+          
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
@@ -219,18 +251,18 @@
     <script src="{% static 'js/Chart.min.js' %}"></script>
     <script src="{% static 'js/dashboard.js' %}"></script>
     <script src="{% static 'js/misc.js' %}"></script>
+    {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js"></script> {% endcomment %}
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script> {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
+    <script src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css"></script>
 
-    {% comment %} <!-- container-scroller -->
-    <!-- plugins:js -->
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/todolist.js"></script>
-    <!-- End custom js for this page --> {% endcomment %}
+    <script>
+      $(document).ready(function () {
+        $('#example').DataTable();
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
   </body>
 </html>
